@@ -27,7 +27,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.release>21</maven.compiler.release>
-        <exec.mainClass>br.com.joaovitor.agenda.AgendaContatos</exec.mainClass>
+        <exec.mainClass>br.com.joaovitor.agenda.application</exec.mainClass>
     </properties>
     
 </project>
