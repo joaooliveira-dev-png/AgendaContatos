@@ -39,5 +39,12 @@ public class ContatoDAO {
         }
     }
     
-    
+    public Contato buscarPorID(Long id){
+        try(EntityManager em = JPAUtil.getEntityManager()){
+            
+            Contato contato = em.find(Contato.class, id);
+            
+            return contato;
+        }
+    }
 }
