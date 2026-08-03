@@ -73,6 +73,11 @@ public class Contato {
     public void setFavorito(boolean favorito) {
         this.favorito = favorito;
     }
+
+    @Override
+    public String toString() {
+        return "Contato{" + "id=" + id + ", nome=" + nome + ", telefone=" + telefone + ", email=" + email + ", favorito=" + favorito + '}';
+    }
     
     
 }

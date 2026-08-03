@@ -47,4 +47,48 @@ public class ContatoDAO {
             return contato;
         }
     }
+    
+    public void atualizar(Contato c){
+        EntityTransaction transaction = null;
+        
+        try(EntityManager em = JPAUtil.getEntityManager()){
+            transaction = em.getTransaction();
+                    
+            transaction.begin();
+            em.merge(c);
+            transaction.commit();
+        }catch(Exception erro){
+            
+            if(transaction != null && transaction.isActive()){
+                transaction.rollback();
+            }
+            
+            erro.printStackTrace();
+        }
+    }
+    
+    public void excluir(Long id){
+        EntityTransaction transaction = null;
+            
+        try(EntityManager em = JPAUtil.getEntityManager()){
+            transaction = em.getTransaction();
+            
+            transaction.begin();
+            Contato contato = em.find(Contato.class, id);
+            
+            if(contato != null){
+                em.remove(contato);
+            }
+            
+            transaction.commit();
+            
+        }catch(Exception erro){
+            
+            if(transaction != null && transaction.isActive()){
+                transaction.rollback();
+            }
+            
+            erro.printStackTrace();
+        }
+    }
 }
